@@ -34,6 +34,12 @@ export const buttonRecipe = defineRecipe({
         h: 8,
         color: "brand.hover",
         textDecoration: "underline"
+      },
+      nav: {
+        bg: "transparent",
+        fontSize: "lg",
+        fontWeight: "semibold",
+        px: "2"
       }
     }
   }
