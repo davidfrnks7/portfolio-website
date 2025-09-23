@@ -1,5 +1,6 @@
 import React, { JSX } from "react";
 import { Provider } from "@/components/ui/provider";
+import DesktopNav from "@/components/ui/nav/DesktopNav";
 
 export const description =
   "Mid-level Software Engineer with experience in full-stack development, DevOps, Database Management, PEGA, managing and creating external correspondence, and adhering to client design artifacts/mockups and web accessibility compliance. View my entire list of experience, education and training, and skills.";
@@ -42,7 +43,10 @@ export default function RootLayout(props: {
       <meta name="audience" content="Everyone" />
       <meta name="robots" content="index, follow" />
       <body>
-        <Provider>{children}</Provider>
+        <Provider>
+          <DesktopNav isHomePage />
+          {children}
+        </Provider>
       </body>
     </html>
   );
