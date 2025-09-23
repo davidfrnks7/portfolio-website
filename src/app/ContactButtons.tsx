@@ -62,7 +62,7 @@ const ContactButtons = (): JSX.Element => {
                 bg: "#005299"
               }}
             >
-              <Icon icon="akar-icons:chevron-down" />
+              <Icon icon="akar-icons:link-out" />
             </IconButton>
           </Tooltip>
         </Box>
