@@ -53,7 +53,7 @@ const DesktopNav = ({ isHomePage }: DesktopNav): JSX.Element => {
               variant="nav"
               id={`Desktop+${navItem[0]}+${index}`}
               key={`Desktop+${navItem[0]}+${index}`}
-              onClick={() => router.push(navItem[1])}
+              onClick={() => router.replace(navItem[1])}
               _hover={{
                 bg: isHomePage ? "#005299" : ""
               }}
