@@ -1,9 +1,14 @@
+"use client";
+
 import { JSX } from "react";
 import { ButtonGroup, Link, IconButton, Box, HStack } from "@chakra-ui/react";
 import { Icon } from "@iconify/react";
 import { Tooltip } from "@/components/ui/Tooltip";
+import { useRouter } from "next/navigation";
 
 const ContactButtons = (): JSX.Element => {
+  const router = useRouter();
+
   return (
     <HStack w="100%" gap={8} justifyContent="center">
       <Link
@@ -63,6 +68,9 @@ const ContactButtons = (): JSX.Element => {
               _hover={{
                 bg: "#005299",
                 color: "#FFF"
+              }}
+              onClick={() => {
+                router.replace("/projects");
               }}
             >
               <Icon icon="akar-icons:link-chain" />
