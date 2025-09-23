@@ -20,7 +20,8 @@ const ContactButtons = (): JSX.Element => {
           borderRadius="lg"
           boxShadow="xl"
           _hover={{
-            bg: "#005299"
+            bg: "#005299",
+            color: "#FFF"
           }}
         >
           <Icon icon="brandico:linkedin-rect" />
@@ -47,7 +48,8 @@ const ContactButtons = (): JSX.Element => {
             p={4}
             pr={2}
             _hover={{
-              bg: "#005299"
+              bg: "#005299",
+              color: "#FFF"
             }}
           >
             <Icon icon="akar-icons:github-fill" />
@@ -59,10 +61,11 @@ const ContactButtons = (): JSX.Element => {
             <IconButton
               aria-label="Go to projects page"
               _hover={{
-                bg: "#005299"
+                bg: "#005299",
+                color: "#FFF"
               }}
             >
-              <Icon icon="akar-icons:link-out" />
+              <Icon icon="akar-icons:link-chain" />
             </IconButton>
           </Tooltip>
         </Box>
