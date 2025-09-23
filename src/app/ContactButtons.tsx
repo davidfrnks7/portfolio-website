@@ -1,4 +1,4 @@
-import React, { JSX } from "react";
+import { JSX } from "react";
 import { ButtonGroup, Link, IconButton, Box, HStack } from "@chakra-ui/react";
 import { Icon } from "@iconify/react";
 import { Tooltip } from "@/components/ui/Tooltip";
@@ -10,28 +10,57 @@ const ContactButtons = (): JSX.Element => {
         href="https://www.linkedin.com/in/davidfrnks7/"
         rel="noopener"
         target="_blank"
+        _hover={{
+          textDecoration: "none"
+        }}
       >
-        <IconButton variant="contactPrimary" p={4} borderRadius="lg" boxShadow="xl">
+        <IconButton
+          variant="contactPrimary"
+          p={4}
+          borderRadius="lg"
+          boxShadow="xl"
+          _hover={{
+            bg: "#005299"
+          }}
+        >
           <Icon icon="brandico:linkedin-rect" />
           {"Connect With Me"}
         </IconButton>
       </Link>
 
-      <ButtonGroup overflow="hidden" attached variant="contactSecondary" boxShadow="xl" borderRadius="lg" >
+      <ButtonGroup
+        overflow="hidden"
+        attached
+        variant="contactSecondary"
+        boxShadow="xl"
+        borderRadius="lg"
+      >
         <Link
           href="https://github.com/davidfrnks7"
           rel="noopener"
           target="_blank"
+          _hover={{
+            textDecoration: "none"
+          }}
         >
-          <IconButton p={4} pr={2} >
+          <IconButton
+            p={4}
+            pr={2}
+            _hover={{
+              bg: "#005299"
+            }}
+          >
             <Icon icon="akar-icons:github-fill" />
             {"View My Work"}
           </IconButton>
         </Link>
-        <Box bg="brand.main" color="whiteAlpha" fontSize="md" >
+        <Box bg="brand.main" color="whiteAlpha" fontSize="md">
           <Tooltip content="Go to projects page" openDelay={200}>
             <IconButton
               aria-label="Go to projects page"
+              _hover={{
+                bg: "#005299"
+              }}
             >
               <Icon icon="akar-icons:chevron-down" />
             </IconButton>
