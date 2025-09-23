@@ -1,11 +1,19 @@
 "use client";
-import React, { JSX } from "react";
+import { JSX } from "react";
 import { Heading } from "@chakra-ui/react";
 import Typewriter from "typewriter-effect";
 
 const TypeWriter = (): JSX.Element => {
   return (
-    <Heading w="100%" h="auto" mt="1rem" mb="5vh" as="h2" size="4xl" color="whiteAlpha.950">
+    <Heading
+      w="100%"
+      h="auto"
+      mt="1rem"
+      mb="5vh"
+      as="h2"
+      size="4xl"
+      color="whiteAlpha.950"
+    >
       <Typewriter
         options={{
           strings: [

@@ -1,5 +1,4 @@
 import { defineConfig, createSystem, defaultConfig } from "@chakra-ui/react";
-import { defineRecipe } from "@chakra-ui/react";
 import { buttonRecipe } from "./button.recipe";
 
 const breakpoints = {

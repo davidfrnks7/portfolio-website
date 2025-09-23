@@ -20,7 +20,7 @@ const Background = (): JSX.Element => {
       bgSize="600% 100%"
       animation="gradient"
       top="0"
-    ></Box >
+    />
   );
 };
 

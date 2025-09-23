@@ -178,6 +178,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@chakra-ui/next-js@npm:2.4.2":
+  version: 2.4.2
+  resolution: "@chakra-ui/next-js@npm:2.4.2"
+  dependencies:
+    "@emotion/cache": "npm:^11.11.0"
+  peerDependencies:
+    "@chakra-ui/react": ">=2.4.0"
+    "@emotion/react": ">=11"
+    next: ">=13"
+    react: ">=18"
+  checksum: 10c0/86bb4aa43500635dd8350c40ad5250e41c190be42ddff72cc6fcd061eb69eb15c5337ae55be80b7522f4d99e549e9b793ea5a7bbafc1276f4a046024fea0b2f8
+  languageName: node
+  linkType: hard
+
 "@chakra-ui/react@npm:^3.27.0":
   version: 3.27.0
   resolution: "@chakra-ui/react@npm:3.27.0"
@@ -254,7 +268,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/cache@npm:^11.14.0":
+"@emotion/cache@npm:^11.11.0, @emotion/cache@npm:^11.14.0":
   version: 11.14.0
   resolution: "@emotion/cache@npm:11.14.0"
   dependencies:
@@ -2548,6 +2562,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "davids-portfolio-website@workspace:."
   dependencies:
+    "@chakra-ui/next-js": "npm:2.4.2"
     "@chakra-ui/react": "npm:^3.27.0"
     "@emotion/react": "npm:^11.14.0"
     "@eslint/eslintrc": "npm:^3.3.1"
