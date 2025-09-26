@@ -1,4 +1,5 @@
 "use client";
+
 import { JSX } from "react";
 import { Heading } from "@chakra-ui/react";
 import Typewriter from "typewriter-effect";

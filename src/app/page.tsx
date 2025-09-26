@@ -1,15 +1,17 @@
-import type { Metadata } from "next";
 import { Box, Heading } from "@chakra-ui/react";
-import { description, title } from "./layout";
 import { Fragment, JSX } from "react";
 import TypeWriter from "./TypeWriter";
 import ContactButtons from "./ContactButtons";
 import Background from "./background";
+import GenerateMetadata from "@/components/metadata/MetadataGen";
 
-export const metadata: Metadata = {
-  title: title,
-  description: description
-};
+// TODO Update description
+
+export const metadata = () =>
+  GenerateMetadata({
+    description:
+      "Mid-level Software Engineer with experience in full-stack development, DevOps, Database Management, PEGA, managing and creating external correspondence, and adhering to client design artifacts/mockups and web accessibility compliance. View my entire list of experience, education and training, and skills."
+  });
 
 export default function Home(): JSX.Element {
   return (
