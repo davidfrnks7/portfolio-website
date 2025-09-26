@@ -1,23 +1,48 @@
 "use client";
 
-import { Button, For, Heading, HStack } from "@chakra-ui/react";
-import { useRouter } from "next/navigation";
-import { JSX } from "react";
+import { For, Heading, HStack, Tabs, useTabs } from "@chakra-ui/react";
+import { usePathname, useRouter } from "next/navigation";
+import { Fragment, JSX } from "react";
 
+export interface NavTabItem {
+  title: string;
+  uri: string;
+}
 interface DesktopNav {
   isHomePage: boolean;
 }
 
 const DesktopNav = ({ isHomePage }: DesktopNav): JSX.Element => {
+  // Handled Navigation for the tabs
   const router = useRouter();
 
-  const navItems = [
-    ["Home", "/"],
-    ["Bio", "/bio"],
-    ["Experience", "/experience"],
-    ["Education", "/education"],
-    ["Skills", "/skills"],
-    ["Projects", "/projects"]
+  // Used to set the default tab
+  const pathname = usePathname();
+  let pathString: string | string[] = pathname.split("/");
+  pathString =
+    pathString[1] === ""
+      ? "Home"
+      : pathString[1].charAt(0).toUpperCase() + pathString[1].slice(1);
+
+  // Tabs store
+  const tabs = useTabs({
+    defaultValue: pathString
+  });
+
+  /**
+   * Page names and uris.
+   * TODO
+   *
+   * ! Move nav items to a file in the _lib folder.
+   */
+
+  const navItems: NavTabItem[] = [
+    { title: "Home", uri: "/" },
+    { title: "Bio", uri: "/bio/professional" },
+    { title: "Experience", uri: "/experience" },
+    { title: "Education", uri: "/education" },
+    { title: "Skills", uri: "/skills" },
+    { title: "Projects", uri: "/projects" }
   ];
 
   return (
@@ -37,6 +62,35 @@ const DesktopNav = ({ isHomePage }: DesktopNav): JSX.Element => {
       <Heading as="h1" size="xl">
         {'David "Leo" Franks\' Portfolio Website'}
       </Heading>
+      <Tabs.RootProvider
+        key={`DesktopNav`}
+        defaultValue={"Home"}
+        variant={isHomePage ? "plain" : "subtle"}
+        value={tabs}
+        colorPalette={isHomePage ? "" : "blue"}
+      >
+        <Tabs.List>
+          <For each={navItems}>
+            {({ title, uri }) => (
+              <Tabs.Trigger
+                key={`DesktopNav-${uri}`}
+                value={title}
+                onClick={() => {
+                  router.replace(uri);
+                }}
+                color={isHomePage ? "whiteAlpha.950" : ""}
+              >
+                {title}
+              </Tabs.Trigger>
+            )}
+          </For>
+          <Tabs.Indicator
+            bg={isHomePage ? "transparent" : ""}
+            shadow={isHomePage ? "none" : ""}
+          />
+        </Tabs.List>
+      </Tabs.RootProvider>
+      {/*
       <HStack
         as="nav"
         display={{ base: "none", lg: "flex" }}
@@ -65,6 +119,7 @@ const DesktopNav = ({ isHomePage }: DesktopNav): JSX.Element => {
           )}
         </For>
       </HStack>
+      */}
     </HStack>
   );
 };

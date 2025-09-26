@@ -1,6 +1,9 @@
+"use client";
+
 import React, { JSX } from "react";
 import { Provider } from "@/components/ui/provider";
 import DesktopNav from "@/components/ui/nav/DesktopNav";
+import { usePathname } from "next/navigation";
 
 export const description =
   "Mid-level Software Engineer with experience in full-stack development, DevOps, Database Management, PEGA, managing and creating external correspondence, and adhering to client design artifacts/mockups and web accessibility compliance. View my entire list of experience, education and training, and skills.";
@@ -10,6 +13,7 @@ export default function RootLayout(props: {
   children: React.ReactNode;
 }): JSX.Element {
   const { children } = props;
+  const pathname = usePathname();
 
   return (
     <html suppressHydrationWarning>
@@ -44,7 +48,7 @@ export default function RootLayout(props: {
       <meta name="robots" content="index, follow" />
       <body>
         <Provider>
-          <DesktopNav isHomePage />
+          <DesktopNav isHomePage={pathname === "/" ? true : false} />
           {children}
         </Provider>
       </body>
