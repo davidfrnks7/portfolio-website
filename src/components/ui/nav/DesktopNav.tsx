@@ -2,7 +2,7 @@
 
 import { For, Heading, HStack, Tabs, useTabs } from "@chakra-ui/react";
 import { usePathname, useRouter } from "next/navigation";
-import { Fragment, JSX, useEffect } from "react";
+import { JSX, useEffect } from "react";
 
 export interface NavTabItem {
   title: string;
