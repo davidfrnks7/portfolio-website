@@ -2,7 +2,7 @@
 
 import { For, Heading, HStack, Tabs, useTabs } from "@chakra-ui/react";
 import { usePathname, useRouter } from "next/navigation";
-import { Fragment, JSX } from "react";
+import { Fragment, JSX, useEffect } from "react";
 
 export interface NavTabItem {
   title: string;
@@ -28,6 +28,16 @@ const DesktopNav = ({ isHomePage }: DesktopNav): JSX.Element => {
   const tabs = useTabs({
     defaultValue: pathString
   });
+
+  /**
+   * Updates the values of the tabs store when the page or uri changes
+   * without using the tabs to navigate.
+   */
+  useEffect(() => {
+    if (tabs.value !== pathString) {
+      tabs.setValue(pathString);
+    }
+  }, [pathString, tabs]);
 
   /**
    * Page names and uris.
@@ -68,6 +78,7 @@ const DesktopNav = ({ isHomePage }: DesktopNav): JSX.Element => {
         variant={isHomePage ? "plain" : "subtle"}
         value={tabs}
         colorPalette={isHomePage ? "" : "blue"}
+        as="nav"
       >
         <Tabs.List>
           <For each={navItems}>
@@ -79,6 +90,8 @@ const DesktopNav = ({ isHomePage }: DesktopNav): JSX.Element => {
                   router.replace(uri);
                 }}
                 color={isHomePage ? "whiteAlpha.950" : ""}
+                fontSize="lg"
+                fontWeight="semibold"
               >
                 {title}
               </Tabs.Trigger>
@@ -90,36 +103,6 @@ const DesktopNav = ({ isHomePage }: DesktopNav): JSX.Element => {
           />
         </Tabs.List>
       </Tabs.RootProvider>
-      {/*
-      <HStack
-        as="nav"
-        display={{ base: "none", lg: "flex" }}
-        h="auto"
-        w="auto"
-        gap="2"
-        justifyContent="center"
-        alignContent="center"
-        alignItems="center"
-      >
-        <For each={navItems}>
-          {(navItem, index) => (
-            <Button
-              variant="nav"
-              id={`Desktop+${navItem[0]}+${index}`}
-              key={`Desktop+${navItem[0]}+${index}`}
-              onClick={() => router.replace(navItem[1])}
-              _hover={{
-                bg: isHomePage ? "#005299" : ""
-              }}
-              borderWidth={isHomePage ? "0px 0px 2px 0px" : ""}
-              borderRadius={isHomePage ? "8" : ""}
-            >
-              {navItem[0]}
-            </Button>
-          )}
-        </For>
-      </HStack>
-      */}
     </HStack>
   );
 };
