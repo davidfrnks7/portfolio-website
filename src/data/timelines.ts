@@ -15,11 +15,13 @@ export type TimelineArr = TimelineItem[];
 
 export const educationTimeline: TimelineArr = [
   {
-    school: "John Ehret High School",
-    course: "Core 4 High School Diploma",
-    location: "Marrero, LA",
+    school: "CGI Java Training",
+    course: "On-Job Java Training",
+    start: 2022,
+    end: 2022,
+    location: "Knoxville, TN",
     description:
-      "Typical high school courses with a focus on IT classes as electives, extra curricular courses, and clubs such as AOIT."
+      "An eight-week training program where a Full Stack Application was built, tested, and deployed. Included instruction on core Java with a focus on applying and implementing programming concepts and OO programming, data structures, and search and sort algorithms. It Focused on hands-on labs to build and test Java programs in Java 8 and building responsive web pages including UI/UX and front-end design."
   },
   {
     school: "Operation Spark",
@@ -31,13 +33,11 @@ export const educationTimeline: TimelineArr = [
       "Immersive coding bootcamp derived from Hack Reactor, using a lot of the same methodologies. Putting students through 1000+ hours of hands-on coding with JavaScript starting with basics and fundamentals, then deep diving into relational and non-relational databases, node.js, app deployment, app bundling, and frameworks JS like React.js. The program focused heavily on teamwork and pair programming to be ready to work within a team."
   },
   {
-    school: "CGI Java Training",
-    course: "On-Job Java Training",
-    start: 2022,
-    end: 2022,
-    location: "Knoxville, TN",
+    school: "John Ehret High School",
+    course: "Core 4 High School Diploma",
+    location: "Marrero, LA",
     description:
-      "An eight-week training program where a Full Stack Application was built, tested, and deployed. Included instruction on core Java with a focus on applying and implementing programming concepts and OO programming, data structures, and search and sort algorithms. It Focused on hands-on labs to build and test Java programs in Java 8 and building responsive web pages including UI/UX and front-end design."
+      "Typical high school courses with a focus on IT classes as electives, extra curricular courses, and clubs such as AOIT."
   }
 ];
 
