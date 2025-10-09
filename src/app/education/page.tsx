@@ -23,7 +23,7 @@ const EducationPage = (): JSX.Element => {
       <BackgroundImage />
       <TimelineComponent
         timeline={educationTimeline}
-        icon={<Icon color="#2563eb" icon="akar-icons:book-close" />}
+        icon={<Icon color="#2563eb" icon="akar-icons:book" />}
       />
     </Flex>
   );
