@@ -29,7 +29,7 @@ const ContactButtons = (): JSX.Element => {
             color: "#FFF"
           }}
         >
-          <Icon icon="brandico:linkedin-rect" />
+          <Icon icon="akar-icons:linkedin-v2-fill" />
           {"Connect With Me"}
         </IconButton>
       </Link>
@@ -57,7 +57,7 @@ const ContactButtons = (): JSX.Element => {
               color: "#FFF"
             }}
           >
-            <Icon icon="akar-icons:github-fill" />
+            <Icon icon="akar-icons:octocat-fill" />
             {"View My Work"}
           </IconButton>
         </Link>
