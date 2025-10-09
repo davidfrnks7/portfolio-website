@@ -14,17 +14,27 @@ import {
 import TabsNav, { TabsObj } from "@/components/ui/nav/tabs/Tabs";
 import BackgroundImage from "@/components/ui/bgImage";
 import portrait from "../../../public/images/portrait.jpg";
+import { usePathname } from "next/navigation";
 
 const BioPageNav = (): JSX.Element => {
-  const defaultValue = "Professional";
+  // Used to set the default tab
+  const pathname = usePathname();
+  let pathString: string | string[] = pathname.split("/");
+  pathString =
+    pathString[2] === ""
+      ? "Professional"
+      : pathString[2].charAt(0).toUpperCase() + pathString[2].slice(1);
+
+  // Tabs store
+  const tabs = useTabs({
+    defaultValue: pathString
+  });
+
+  // Tabs
   const bios: TabsObj[] = [
     { title: "Professional", uri: "/bio/professional" },
     { title: "Personal", uri: "/bio/personal" }
   ];
-
-  const tabs = useTabs({
-    defaultValue: defaultValue
-  });
 
   /**
    * TODOS:
@@ -71,7 +81,7 @@ const BioPageNav = (): JSX.Element => {
         >
           <TabsNav
             tabs={bios}
-            defaultValue={defaultValue}
+            defaultValue={pathString}
             currentValue={tabs}
             title="bio-tabs"
           />
