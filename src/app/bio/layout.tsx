@@ -20,10 +20,12 @@ const BioPageNav = (): JSX.Element => {
   // Used to set the default tab
   const pathname = usePathname();
   let pathString: string | string[] = pathname.split("/");
-  pathString =
-    pathString[2] === ""
-      ? "Professional"
-      : pathString[2].charAt(0).toUpperCase() + pathString[2].slice(1);
+
+  if (pathString.length < 1) {
+    pathString = pathString[2].charAt(0).toUpperCase() + pathString[2].slice(1);
+  } else {
+    pathString = "Professional";
+  }
 
   // Tabs store
   const tabs = useTabs({
