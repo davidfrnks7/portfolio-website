@@ -1,7 +1,7 @@
 import { Fragment, JSX } from "react";
 import BackgroundImage from "@/components/ui/bgImage";
 import GenerateMetadata from "@/components/metadata/MetadataGen";
-import { Box, Flex, Heading, SimpleGrid, VStack } from "@chakra-ui/react";
+import { Box, Heading, SimpleGrid, VStack } from "@chakra-ui/react";
 import icons, { Icons, IconTuple } from "./Icons";
 
 // TODO Add description to metadata
