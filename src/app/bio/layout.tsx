@@ -8,8 +8,8 @@ import {
   useTabs,
   VStack,
   Text,
-  Flex,
-  Box
+  Box,
+  Flex
 } from "@chakra-ui/react";
 import TabsNav, { TabsObj } from "@/components/ui/nav/tabs/Tabs";
 import BackgroundImage from "@/components/ui/bgImage";
@@ -47,6 +47,7 @@ const BioPageNav = (): JSX.Element => {
 
   return (
     <Flex
+      id="bio"
       h="100vh"
       w="100vw"
       justifyContent="center"
@@ -55,17 +56,18 @@ const BioPageNav = (): JSX.Element => {
     >
       <BackgroundImage />
       <HStack
-        px={4}
-        py={8}
-        rounded="3xl"
-        w="80%"
+        h="auto"
+        w="auto"
+        p="2.5rem"
+        mx="5vw"
+        rounded="4xl"
         justifyContent="flex-start"
         alignContent="center"
         alignItems="center"
-        bg="#09090b80"
+        bg="brand.content"
         gap={6}
       >
-        <Box h="auto" w={{ lg: "30%", xl: "25%" }} m={6}>
+        <Box id="portrait" h="auto" w={{ lg: "30%", xl: "25%" }} m={6}>
           <Image
             layout="intrinsic"
             src={portrait}
@@ -86,6 +88,7 @@ const BioPageNav = (): JSX.Element => {
             title="bio-tabs"
           />
           <ScrollArea.Root
+            id="bio-text"
             colorPalette="blue"
             variant="always"
             height="1000px"
