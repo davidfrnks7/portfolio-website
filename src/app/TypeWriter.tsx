@@ -7,6 +7,7 @@ import Typewriter from "typewriter-effect";
 const TypeWriter = (): JSX.Element => {
   return (
     <Heading
+      id="typewriter"
       w="100%"
       h="auto"
       mt="1rem"

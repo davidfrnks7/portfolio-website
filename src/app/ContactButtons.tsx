@@ -10,7 +10,7 @@ const ContactButtons = (): JSX.Element => {
   const router = useRouter();
 
   return (
-    <HStack w="100%" gap={8} justifyContent="center">
+    <HStack id="contact-buttons" w="100%" gap={8} justifyContent="center">
       <Link
         href="https://www.linkedin.com/in/davidfrnks7/"
         rel="noopener"

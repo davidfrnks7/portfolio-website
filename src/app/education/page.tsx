@@ -14,6 +14,7 @@ export const metadata = () =>
 const EducationPage = (): JSX.Element => {
   return (
     <Flex
+      id="education"
       h="100vh"
       w="100vw"
       justifyContent="center"

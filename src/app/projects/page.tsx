@@ -13,6 +13,7 @@ export const metadata = () =>
 const ProjectsPage = (): JSX.Element => {
   return (
     <Flex
+      id="projects"
       h="100vh"
       w="100vw"
       justifyContent="center"
@@ -20,12 +21,19 @@ const ProjectsPage = (): JSX.Element => {
       alignItems="center"
     >
       <BackgroundImage />
-      <SimpleGrid columns={2} gap={8} px={10} h="100%" mt="10vh">
+      <SimpleGrid
+        id="projects-grid"
+        columns={2}
+        gap={8}
+        px={10}
+        h="100%"
+        mt="10vh"
+      >
         <For each={projects}>
           {(project: Project) => {
             const { name } = project;
             return (
-              <ProjectCard key={name.replace(" ", "-")} project={project} />
+              <ProjectCard key={name.replaceAll(" ", "-")} project={project} />
             );
           }}
         </For>

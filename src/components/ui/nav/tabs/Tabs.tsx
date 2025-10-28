@@ -41,6 +41,7 @@ const TabsNav = ({
           {({ title, uri }) => (
             <Tabs.Trigger
               key={`${title}-${uri}`}
+              id={`${title}-${uri}`}
               value={title}
               onClick={() => {
                 router.replace(uri);

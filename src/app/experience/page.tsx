@@ -13,6 +13,7 @@ export const metadata = () => GenerateMetadata({ title: "Work Experience" });
 const ExperiencePage = (): JSX.Element => {
   return (
     <Flex
+      id="projects"
       h="100vh"
       w="100vw"
       justifyContent="center"
