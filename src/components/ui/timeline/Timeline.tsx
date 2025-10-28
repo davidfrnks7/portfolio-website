@@ -38,7 +38,11 @@ const TimelineComponent = ({ timeline, icon }: TimelineProps): JSX.Element => {
             const subTitle = course || jobTitle || certIssuer || "";
 
             return (
-              <Timeline.Item width="100%" id={title.replaceAll(" ", "-")}>
+              <Timeline.Item
+                width="100%"
+                id={title.replaceAll(" ", "-")}
+                key={title.replaceAll(" ", "-")}
+              >
                 <Timeline.Connector colorPalette={"blue"}>
                   <Timeline.Separator />
                   <Timeline.Indicator fontSize="xl">{icon}</Timeline.Indicator>
@@ -62,18 +66,18 @@ const TimelineComponent = ({ timeline, icon }: TimelineProps): JSX.Element => {
                           ? typeof start === "number"
                             ? start
                             : start.toLocaleDateString("en-US", {
-                                year: "numeric",
-                                month: "long"
-                              })
+                              year: "numeric",
+                              month: "long"
+                            })
                           : null}
                         {start && end ? " - " : null}
                         {end
                           ? typeof end === "number"
                             ? end
                             : end.toLocaleDateString("en-US", {
-                                year: "numeric",
-                                month: "long"
-                              })
+                              year: "numeric",
+                              month: "long"
+                            })
                           : null}
                         {location ? ` ${location}` : null}
                       </Text>
