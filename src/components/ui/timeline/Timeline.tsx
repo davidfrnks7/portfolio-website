@@ -18,7 +18,7 @@ const TimelineComponent = ({ timeline, icon }: TimelineProps): JSX.Element => {
         justifyContent="flex-start"
         alignContent="center"
         alignItems="center"
-        bg="#09090b80"
+        bg="brand.content"
         gap={6}
       >
         <For each={timeline}>
@@ -34,11 +34,11 @@ const TimelineComponent = ({ timeline, icon }: TimelineProps): JSX.Element => {
             start,
             end
           }: TimelineItem) => {
-            const title = school || workplace || certName;
-            const subTitle = course || jobTitle || certIssuer;
+            const title = school || workplace || certName || "";
+            const subTitle = course || jobTitle || certIssuer || "";
 
             return (
-              <Timeline.Item width="100%">
+              <Timeline.Item width="100%" id={title.replaceAll(" ", "-")}>
                 <Timeline.Connector colorPalette={"blue"}>
                   <Timeline.Separator />
                   <Timeline.Indicator fontSize="xl">{icon}</Timeline.Indicator>
@@ -62,18 +62,18 @@ const TimelineComponent = ({ timeline, icon }: TimelineProps): JSX.Element => {
                           ? typeof start === "number"
                             ? start
                             : start.toLocaleDateString("en-US", {
-                                year: "numeric",
-                                month: "long"
-                              })
+                              year: "numeric",
+                              month: "long"
+                            })
                           : null}
                         {start && end ? " - " : null}
                         {end
                           ? typeof end === "number"
                             ? end
                             : end.toLocaleDateString("en-US", {
-                                year: "numeric",
-                                month: "long"
-                              })
+                              year: "numeric",
+                              month: "long"
+                            })
                           : null}
                         {location ? ` ${location}` : null}
                       </Text>
