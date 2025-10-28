@@ -8,6 +8,7 @@ const BackgroundImage = (): JSX.Element => {
       pos="fixed"
       h="100%"
       w="100%"
+      top={0}
       zIndex={-1}
     />
   );

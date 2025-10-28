@@ -53,7 +53,7 @@ const config = defineConfig({
           valid: { value: "{colors.brand.110}" },
           footer: { value: "{colors.brand.120}" },
           footerText: { value: "{colors.brand.130}" },
-          content: { value: "{colors.brand.140}" }
+          content: { value: "#09090b80" }
         }
       }
     },
