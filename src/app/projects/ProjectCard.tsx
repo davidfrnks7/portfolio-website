@@ -21,7 +21,15 @@ const ProjectCard = ({ project }: ProjectCardProps): JSX.Element => {
   const { name, description, tech, deployed, links, expanded, role } = project;
 
   return (
-    <VStack bg="#09090b80" gap={4} px={6} py={4}>
+    <VStack
+      id={`${name.replaceAll(" ", "-")}-project`}
+      bg="brand.content"
+      boxShadow="rgba(255, 255, 255, 0.2) 0px 0px 15px, rgba(255, 255, 255, 0.15) 0px 0px 3px 1px"
+      border="1px solid white"
+      rounded="4xl"
+      gap={6}
+      p={6}
+    >
       <Heading as="h3" size="xl">
         {name}
       </Heading>
