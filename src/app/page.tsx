@@ -17,12 +17,7 @@ export default function Home(): JSX.Element {
   return (
     <Fragment>
       <Background />
-      <Box
-        id="name"
-        w="100%"
-        h="100vh"
-        textAlign="center"
-      >
+      <Box id="name" w="100%" h="100vh" textAlign="center">
         <Heading mt="35vh" as="h1" size="3xl">
           {'Hello, I am David "Leo" Franks'}
         </Heading>

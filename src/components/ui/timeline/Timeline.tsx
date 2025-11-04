@@ -1,5 +1,5 @@
 import { Fragment, JSX } from "react";
-import { Timeline, Text, VStack, HStack, For } from "@chakra-ui/react";
+import { Timeline, Text, VStack, For, Flex } from "@chakra-ui/react";
 import { TimelineArr, TimelineItem } from "@/data/timelines";
 
 interface TimelineProps {
@@ -9,12 +9,16 @@ interface TimelineProps {
 
 const TimelineComponent = ({ timeline, icon }: TimelineProps): JSX.Element => {
   return (
-    <Timeline.Root w="70vw" size="xl" variant="outline">
+    <Timeline.Root
+      w={{ base: "100vw", md: "90vw", lg: "80vw" }}
+      size="xl"
+      variant="outline"
+    >
       <VStack
         px={4}
         py={8}
         rounded="3xl"
-        w="80%"
+        w="100%"
         justifyContent="flex-start"
         alignContent="center"
         alignItems="center"
@@ -51,11 +55,13 @@ const TimelineComponent = ({ timeline, icon }: TimelineProps): JSX.Element => {
                   <Timeline.Title as="h2" fontSize="lg" fontWeight="bold">
                     {title}
                   </Timeline.Title>
-                  <HStack
+                  <Flex
                     w="auto"
                     justifyContent="space-between"
                     alignContent="flex-start"
                     alignItems="flex-start"
+                    direction={{ base: "column", md: "row" }}
+                    gap={{ base: 2, md: 0 }}
                   >
                     <Text width="auto" fontSize="lg">
                       {subTitle}
@@ -84,7 +90,7 @@ const TimelineComponent = ({ timeline, icon }: TimelineProps): JSX.Element => {
                     ) : (
                       <Fragment />
                     )}
-                  </HStack>
+                  </Flex>
                   <Text fontSize="md">{description}</Text>
                 </Timeline.Content>
               </Timeline.Item>
