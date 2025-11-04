@@ -35,6 +35,23 @@ export const buttonRecipe = defineRecipe({
         color: "brand.hover",
         textDecoration: "underline"
       },
+      mobileNav: {
+        fontSize: "md",
+        px: "2",
+        boxShadow:
+          "rgba(0, 134, 255, 0.30) 0px 0px 15px, rgba(0, 134, 255, 0.15) 0px 0px 3px 1px",
+        _hover: {
+          bg: "brand.hover",
+          boxShadow:
+            "rgba(0, 134, 255, 0.5) 0px 0px 15px, rgba(0, 134, 255, 0.3) 0px 0px 3px 1px"
+        },
+        _expanded: {
+          bg: "brand.primary",
+          boxShadow:
+            "rgba(0, 134, 255, 0.5) 0px 0px 15px, rgba(0, 134, 255, 0.3) 0px 0px 3px 1px",
+          border: "1px solid #0068ff"
+        }
+      },
       nav: {
         bg: "transparent",
         fontSize: "lg",
