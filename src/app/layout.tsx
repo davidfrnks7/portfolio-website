@@ -2,8 +2,8 @@
 
 import React, { JSX } from "react";
 import { Provider } from "@/components/ui/provider";
-import DesktopNav from "@/components/ui/nav/DesktopNav";
 import { usePathname } from "next/navigation";
+import Header from "@/components/ui/header/Header";
 
 export default function RootLayout(props: {
   children: React.ReactNode;
@@ -40,7 +40,7 @@ export default function RootLayout(props: {
       <meta name="robots" content="index, follow" />
       <body>
         <Provider>
-          <DesktopNav isHomePage={pathname === "/" ? true : false} />
+          <Header isHomePage={pathname === "/" ? true : false} />
           {children}
         </Provider>
       </body>

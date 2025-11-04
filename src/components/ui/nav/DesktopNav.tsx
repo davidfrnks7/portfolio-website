@@ -1,6 +1,6 @@
 "use client";
 
-import { For, Heading, HStack, Tabs, useTabs } from "@chakra-ui/react";
+import { For, Tabs, useTabs } from "@chakra-ui/react";
 import { usePathname, useRouter } from "next/navigation";
 import { JSX, useEffect } from "react";
 
@@ -56,54 +56,37 @@ const DesktopNav = ({ isHomePage }: DesktopNav): JSX.Element => {
   ];
 
   return (
-    <HStack
-      justifyContent="space-between"
-      display={{ base: "none", lg: "flex" }}
-      h="auto"
-      w="100%"
-      gap="4"
-      alignContent="center"
-      alignItems="center"
-      pos="fixed"
-      top="5px"
-      zIndex="100000"
-      px="4"
+    <Tabs.RootProvider
+      defaultValue={"Home"}
+      variant={isHomePage ? "plain" : "subtle"}
+      value={tabs}
+      colorPalette={isHomePage ? "" : "blue"}
+      as="nav"
+      display={{ base: "none", lg: "block" }}
     >
-      <Heading as="h1" size="xl">
-        {'David "Leo" Franks\' Portfolio Website'}
-      </Heading>
-      <Tabs.RootProvider
-        key={`DesktopNav`}
-        defaultValue={"Home"}
-        variant={isHomePage ? "plain" : "subtle"}
-        value={tabs}
-        colorPalette={isHomePage ? "" : "blue"}
-        as="nav"
-      >
-        <Tabs.List>
-          <For each={navItems}>
-            {({ title, uri }) => (
-              <Tabs.Trigger
-                key={`DesktopNav-${uri}`}
-                value={title}
-                onClick={() => {
-                  router.replace(uri);
-                }}
-                color={isHomePage ? "whiteAlpha.950" : ""}
-                fontSize="lg"
-                fontWeight="semibold"
-              >
-                {title}
-              </Tabs.Trigger>
-            )}
-          </For>
-          <Tabs.Indicator
-            bg={isHomePage ? "transparent" : ""}
-            shadow={isHomePage ? "none" : ""}
-          />
-        </Tabs.List>
-      </Tabs.RootProvider>
-    </HStack>
+      <Tabs.List>
+        <For each={navItems}>
+          {({ title, uri }) => (
+            <Tabs.Trigger
+              key={`DesktopNav-${uri}`}
+              value={title}
+              onClick={() => {
+                router.replace(uri);
+              }}
+              color={isHomePage ? "whiteAlpha.950" : ""}
+              fontSize="lg"
+              fontWeight="semibold"
+            >
+              {title}
+            </Tabs.Trigger>
+          )}
+        </For>
+        <Tabs.Indicator
+          bg={isHomePage ? "transparent" : ""}
+          shadow={isHomePage ? "none" : ""}
+        />
+      </Tabs.List>
+    </Tabs.RootProvider>
   );
 };
 
