@@ -19,11 +19,9 @@ export default function Home(): JSX.Element {
       <Background />
       <Box
         id="name"
-        zIndex="1"
         w="100%"
         h="100vh"
         textAlign="center"
-        pos="fixed"
       >
         <Heading mt="35vh" as="h1" size="3xl">
           {'Hello, I am David "Leo" Franks'}

@@ -1,7 +1,7 @@
 "use client";
 
 import { JSX } from "react";
-import { ButtonGroup, Link, IconButton, Box, HStack } from "@chakra-ui/react";
+import { ButtonGroup, Link, IconButton, Box, Flex } from "@chakra-ui/react";
 import { Icon } from "@iconify/react";
 import { Tooltip } from "@/components/ui/Tooltip";
 import { useRouter } from "next/navigation";
@@ -10,7 +10,15 @@ const ContactButtons = (): JSX.Element => {
   const router = useRouter();
 
   return (
-    <HStack id="contact-buttons" w="100%" gap={8} justifyContent="center">
+    <Flex
+      id="contact-buttons"
+      w="100%"
+      gap={8}
+      justifyContent="center"
+      alignContent="center"
+      alignItems="center"
+      direction={{ base: "column", sm: "row" }}
+    >
       <Link
         href="https://www.linkedin.com/in/davidfrnks7/"
         rel="noopener"
@@ -78,7 +86,7 @@ const ContactButtons = (): JSX.Element => {
           </Tooltip>
         </Box>
       </ButtonGroup>
-    </HStack>
+    </Flex>
   );
 };
 
