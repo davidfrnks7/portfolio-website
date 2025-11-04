@@ -40,36 +40,46 @@ const BioPageNav = (): JSX.Element => {
 
   /**
    * TODOS:
-   * ! Make page responsive to screen size.
    * ! Add bios to a file in _lib folder.
-   * ! Remove hard-coded height and width props.
    * * Import and use the bios file.
-   * * Stylize the component more.
    */
 
   return (
     <Flex
       id="bio"
       h="100vh"
-      w="100vw"
+      w="auto"
       justifyContent="center"
       alignContent="center"
       alignItems="center"
     >
       <BackgroundImage />
-      <HStack
-        h="auto"
+      <Flex
+        h={{ base: "100%", lg: "auto" }}
         w="auto"
-        p="2.5rem"
-        mx="5vw"
-        rounded="4xl"
-        justifyContent="flex-start"
+        p={{ base: "", lg: "2.5rem" }}
+        py={{ base: "2rem", lg: "" }}
+        mx={{ base: "", lg: "5vw" }}
+        rounded={{ base: "", lg: "4xl" }}
+        justifyContent={{ base: "center", lg: "flex-start" }}
         alignContent="center"
         alignItems="center"
         bg="brand.content"
-        gap={6}
+        gap={{ base: 0, lg: 6 }}
+        boxShadow={{
+          base: "",
+          lg: "rgba(255, 255, 255, 0.2) 0px 0px 15px, rgba(255, 255, 255, 0.15) 0px 0px 3px 1px"
+        }}
+        border={{ base: "", lg: "1px solid white" }}
+        direction={{ base: "column", lg: "row" }}
+        minH={{ base: "100vh", lg: "0" }}
       >
-        <Box id="portrait" h="auto" w={{ lg: "30%", xl: "25%" }} m={6}>
+        <Box
+          id="portrait"
+          h="auto"
+          w={{ base: "70%", sm: "40%", md: "35%", lg: "30%", xl: "25%" }}
+          m={6}
+        >
           <Image
             layout="intrinsic"
             src={portrait}
@@ -81,7 +91,7 @@ const BioPageNav = (): JSX.Element => {
           justifyContent="flex-start"
           alignContent="flex-start"
           alignItems="flex-start"
-          flex={1}
+          w={{ base: "80vw", sm: "90vw", lg: "80vw" }}
         >
           <TabsNav
             tabs={bios}
@@ -93,7 +103,7 @@ const BioPageNav = (): JSX.Element => {
             id="bio-text"
             colorPalette="blue"
             variant="always"
-            height="1000px"
+            minH={{ base: "35vh", md: "35vh", lg: "60vh" }}
             w="100%"
             bg="#09090bE6"
           >
@@ -108,7 +118,7 @@ const BioPageNav = (): JSX.Element => {
             <ScrollArea.Corner />
           </ScrollArea.Root>
         </VStack>
-      </HStack>
+      </Flex>
     </Flex>
   );
 };
