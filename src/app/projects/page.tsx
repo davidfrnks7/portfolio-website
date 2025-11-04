@@ -14,20 +14,20 @@ const ProjectsPage = (): JSX.Element => {
   return (
     <Flex
       id="projects"
-      h="100vh"
+      minH="100vh"
       w="100vw"
       justifyContent="center"
       alignContent="center"
       alignItems="center"
+      marginY="7vh"
     >
       <BackgroundImage />
       <SimpleGrid
         id="projects-grid"
-        columns={2}
+        columns={{ base: 1, md: 2, xl: 3 }}
         gap={8}
         px={10}
         h="100%"
-        mt="10vh"
       >
         <For each={projects}>
           {(project: Project) => {

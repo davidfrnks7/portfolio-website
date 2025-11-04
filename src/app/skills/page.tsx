@@ -16,15 +16,13 @@ const SkillsPage = (): JSX.Element => {
       <BackgroundImage />
       <SimpleGrid
         id="skills"
-        columns={{ base: 2, sm: 3, md: 4, lg: 5, xl: 6 }}
+        columns={{ base: 1, sm: 2, md: 4, lg: 5, xl: 6, "2xl": 8 }}
         justifyContent="flex-start"
         alignContent="center"
         textAlign="center"
-        // h="auto"
-        // w="100%"
         py="10vh"
-        px={{ base: 6, "2xl": "10%" }}
-        gap={10}
+        px={{ base: 6, lg: "5vw", "2xl": "10vw" }}
+        gap={{ base: 10, md: 8 }}
       >
         {icons.map((iconsArr: Icons): JSX.Element[] => {
           return iconsArr.map((icon: IconTuple) => {
