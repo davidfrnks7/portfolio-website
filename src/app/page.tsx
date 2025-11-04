@@ -1,4 +1,4 @@
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Heading, VStack } from "@chakra-ui/react";
 import { Fragment, JSX } from "react";
 import TypeWriter from "./TypeWriter";
 import ContactButtons from "./ContactButtons";
@@ -17,13 +17,20 @@ export default function Home(): JSX.Element {
   return (
     <Fragment>
       <Background />
-      <Box id="name" w="100%" h="100vh" textAlign="center">
-        <Heading mt="35vh" as="h1" size="3xl">
+      <VStack
+        id="name"
+        w="100%"
+        h="100vh"
+        textAlign="center"
+        justifyContent="center"
+        alignContent="center"
+      >
+        <Heading as="h1" size="3xl">
           {'Hello, I am David "Leo" Franks'}
         </Heading>
         <TypeWriter />
         <ContactButtons />
-      </Box>
+      </VStack>
     </Fragment>
   );
 }

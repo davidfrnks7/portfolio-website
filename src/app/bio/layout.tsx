@@ -3,10 +3,10 @@
 import { JSX } from "react";
 import Image from "next/image";
 import { ScrollArea, useTabs, VStack, Text, Box, Flex } from "@chakra-ui/react";
-import TabsNav, { TabsObj } from "@/components/ui/nav/tabs/Tabs";
 import BackgroundImage from "@/components/ui/bgImage";
 import portrait from "../../../public/images/portrait.jpg";
 import { usePathname } from "next/navigation";
+import TabsNav, { TabsObj } from "@/components/ui/nav/Tabs";
 
 const BioPageNav = (): JSX.Element => {
   // Used to set the default tab
