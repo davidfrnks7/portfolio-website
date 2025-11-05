@@ -16,6 +16,7 @@ const GenerateMetadata = (props: SeoHeadProps): Metadata => {
     description: description || "Default Description",
     openGraph: {
       title: title ? `${title} | ${websiteTitle}` : websiteTitle,
+      siteName: websiteTitle,
       description: description || "Default Open Graph Description",
       images: ogImage ? [ogImage] : ["/images/portrait.jpg"]
     }
