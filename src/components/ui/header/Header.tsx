@@ -52,7 +52,7 @@ const Header = ({ isHomePage }: HeaderProps): JSX.Element => {
     >
       <Box display={{ base: "block", lg: "none" }} />
       <Heading w="100%" as="h1" size="xl">
-        {'David "Leo" Franks\' Portfolio Website'}
+        {"Leo Franks Portfolio Website"}
       </Heading>
       <DesktopNav isHomePage />
       <MobileNav isOpen={isMenuButtonOpen} setIsOpen={setIsMenuButtonOpen} />

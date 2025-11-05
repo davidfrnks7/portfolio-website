@@ -15,7 +15,7 @@ import BackgroundImage from "@/components/ui/bgImage";
 import portrait from "../../../public/images/portrait.jpg";
 import { usePathname } from "next/navigation";
 import TabsNav, { TabsObj } from "@/components/ui/nav/Tabs";
-import bio from "./bio";
+import bio from "@/data/bio";
 
 const BioPageNav = (): JSX.Element => {
   // Used to set the default tab
