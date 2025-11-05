@@ -3,7 +3,19 @@ import { Icon } from "@iconify/react";
 
 export type IconTuple = [string, JSX.Element];
 export type Icons = IconTuple[];
-type IconsArr = Icons[];
+
+export interface IconsObj {
+  "Coding Languages": Icons;
+  "Tech Libraries": Icons;
+  "Tech Frameworks": Icons;
+  Software: Icons;
+  APIs: Icons;
+  Cloud: Icons;
+  "CI/CD": Icons;
+  "CSS Frameworks & Styling": Icons;
+  Databases: Icons;
+  IDEs: Icons;
+}
 
 const iconsColor = "#00aec1";
 
@@ -135,13 +147,8 @@ const apis: Icons = [
     "LangChain",
     <Icon key="LangChain" color={iconsColor} icon="simple-icons:langchain" />
   ],
-  ["OpenAI", <Icon key="OpenAI" color={iconsColor} icon="ri:openai-fill" />]
-  /*,
-  [
-    "Axios",
-    <Icon key="Axios" color={iconsColor} icon="logos:axios" />
-  ]
-  */
+  ["OpenAI", <Icon key="OpenAI" color={iconsColor} icon="ri:openai-fill" />],
+  ["Axios", <Icon key="Axios" color={iconsColor} icon="devicon-plain:axios" />]
 ];
 
 const paymentGateways: Icons = [
@@ -173,13 +180,11 @@ const ide: Icons = [
       color={iconsColor}
       icon="mdi:redhat"
     />
-  ]
-  /*
+  ],
   [
     "IntelliJ IDEA",
     <Icon key="IntelliJ IDEA" color={iconsColor} icon="cib:intellijidea" />
   ]
-    */
 ];
 
 const software: Icons = [
@@ -205,20 +210,30 @@ const software: Icons = [
   ]
 ];
 
-const icons: IconsArr = [
-  languages,
-  libraries,
-  frameworks,
-  software,
-  runtime,
-  deployment,
-  codeAnalysis,
-  versionControl,
-  stylingFrameworks,
-  apis,
-  paymentGateways,
-  databases,
-  ide
+const icons: IconsObj = {
+  "Coding Languages": languages,
+  "Tech Libraries": libraries,
+  "Tech Frameworks": frameworks,
+  Software: software,
+  APIs: apis.concat(runtime, paymentGateways),
+  Cloud: deployment,
+  "CI/CD": versionControl.concat(codeAnalysis),
+  "CSS Frameworks & Styling": stylingFrameworks,
+  Databases: databases,
+  IDEs: ide
+};
+
+export const tabs: [string, keyof IconsObj][] = [
+  ["languages", "Coding Languages"],
+  ["libraries", "Tech Libraries"],
+  ["frameworks", "Tech Frameworks"],
+  ["software", "Software"],
+  ["apis", "APIs"],
+  ["cloud", "Cloud"],
+  ["ci-cd", "CI/CD"],
+  ["css", "CSS Frameworks & Styling"],
+  ["db", "Databases"],
+  ["ide", "IDEs"]
 ];
 
 export default icons;

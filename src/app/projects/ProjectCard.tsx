@@ -83,34 +83,34 @@ const ProjectCard = ({ project }: ProjectCardProps): JSX.Element => {
         <ScrollArea.Corner />
       </ScrollArea.Root>
       <Text>{deployed}</Text>
-      <HStack>
-        <Link
-          href={links.github}
-          rel="noopener"
-          target="_blank"
-          _hover={{
-            textDecoration: "none"
-          }}
-        >
-          <IconButton>
-            <Icon icon="akar-icons:octocat-fill" />
-            {"View Source Code"}
-          </IconButton>
-        </Link>
-        {links.website ? (
+      <HStack gap={4}>
+        <IconButton variant="project" py={2} px={4}>
           <Link
-            href={links.website}
+            href={links.github}
             rel="noopener"
             target="_blank"
             _hover={{
               textDecoration: "none"
             }}
           >
-            <IconButton>
+            <Icon icon="akar-icons:octocat-fill" />
+            {"View Source Code"}
+          </Link>
+        </IconButton>
+        {links.website ? (
+          <IconButton variant="project" py={2} px={4}>
+            <Link
+              href={links.website}
+              rel="noopener"
+              target="_blank"
+              _hover={{
+                textDecoration: "none"
+              }}
+            >
               <Icon icon="akar-icons:globe" />
               {"Live View"}
-            </IconButton>
-          </Link>
+            </Link>
+          </IconButton>
         ) : null}
       </HStack>
     </VStack>

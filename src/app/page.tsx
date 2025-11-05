@@ -1,4 +1,4 @@
-import { Box, Heading, VStack } from "@chakra-ui/react";
+import { Heading, VStack } from "@chakra-ui/react";
 import { Fragment, JSX } from "react";
 import TypeWriter from "./TypeWriter";
 import ContactButtons from "./ContactButtons";
