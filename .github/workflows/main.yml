@@ -41,6 +41,8 @@ jobs:
       # YARN
       - name: "Install Dependencies"
         run: yarn install # will run `yarn install` command
+      - name: "Typegen Theme Types"
+        run: yarn typegen-theme # will run `yarn typegen-theme` command
       #- uses: borales/actions-yarn@v3.0.0
       #  with:
       #    cmd: test # will run `yarn test` command
