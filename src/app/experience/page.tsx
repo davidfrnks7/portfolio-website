@@ -1,4 +1,4 @@
-import { JSX } from "react";
+import { Fragment, JSX } from "react";
 import { Metadata } from "next";
 import { Flex } from "@chakra-ui/react";
 import { Icon } from "@iconify/react";
@@ -14,20 +14,23 @@ export const metadata: Metadata = GenerateMetadata({
 
 const ExperiencePage = (): JSX.Element => {
   return (
-    <Flex
-      id="projects"
-      h="100vh"
-      w="100vw"
-      justifyContent="center"
-      alignContent="center"
-      alignItems="center"
-    >
+    <Fragment>
       <BackgroundImage />
-      <TimelineComponent
-        timeline={workTimeline}
-        icon={<Icon color="#2563eb" icon="akar-icons:people-group" />}
-      />
-    </Flex>
+      <Flex
+        id="projects"
+        minH="100vh"
+        h="100%"
+        w="100vw"
+        justifyContent="center"
+        alignContent="center"
+        alignItems="center"
+      >
+        <TimelineComponent
+          timeline={workTimeline}
+          icon={<Icon color="#2563eb" icon="akar-icons:people-group" />}
+        />
+      </Flex>
+    </Fragment>
   );
 };
 
