@@ -31,10 +31,12 @@ const TabsNav = ({
     <Tabs.RootProvider
       key={title}
       defaultValue={defaultValue}
-      variant={"subtle"}
+      variant="subtle"
       value={currentValue}
       fitted
       colorPalette="blue"
+      w="auto"
+      h="auto"
     >
       <Tabs.List>
         <For each={tabs}>
@@ -46,6 +48,9 @@ const TabsNav = ({
               onClick={() => {
                 router.replace(uri);
               }}
+              w="auto"
+              minH="min-content"
+              h="auto"
             >
               {title}
             </Tabs.Trigger>

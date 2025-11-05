@@ -4,11 +4,7 @@ import { Button, For, Menu, Text } from "@chakra-ui/react";
 import { Icon } from "@iconify/react";
 import { useRouter } from "next/navigation";
 import { Dispatch, Fragment, JSX, SetStateAction, useState } from "react";
-
-export interface NavTabItem {
-  title: string;
-  uri: string;
-}
+import navItems from "./navItems";
 
 interface MobileNav {
   isOpen: boolean;
@@ -21,22 +17,6 @@ const MobileNav = ({ isOpen, setIsOpen }: MobileNav): JSX.Element => {
 
   const [isMenuButtonHover, setIsMenuButtonHover] = useState(false);
 
-  /**
-   * Page names and uris.
-   * TODO
-   *
-   * ! Move nav items to a file in the _lib folder.
-   */
-
-  const navItems: NavTabItem[] = [
-    { title: "Home", uri: "/" },
-    { title: "Bio", uri: "/bio/professional" },
-    { title: "Experience", uri: "/experience" },
-    { title: "Education", uri: "/education" },
-    { title: "Skills", uri: "/skills" },
-    { title: "Projects", uri: "/projects" }
-  ];
-
   return (
     <Menu.Root open={isOpen}>
       <Menu.Trigger
@@ -44,6 +24,7 @@ const MobileNav = ({ isOpen, setIsOpen }: MobileNav): JSX.Element => {
         onMouseLeave={() => setIsMenuButtonHover(false)}
         display={{ base: "block", lg: "none" }}
         onClick={() => setIsOpen(!isOpen)}
+        asChild
       >
         <Button variant="mobileNav">
           <Icon

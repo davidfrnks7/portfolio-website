@@ -3,11 +3,7 @@
 import { For, Tabs, useTabs } from "@chakra-ui/react";
 import { usePathname, useRouter } from "next/navigation";
 import { JSX, useEffect } from "react";
-
-export interface NavTabItem {
-  title: string;
-  uri: string;
-}
+import navItems from "./navItems";
 interface DesktopNav {
   isHomePage: boolean;
 }
@@ -38,22 +34,6 @@ const DesktopNav = ({ isHomePage }: DesktopNav): JSX.Element => {
       tabs.setValue(pathString);
     }
   }, [pathString, tabs]);
-
-  /**
-   * Page names and uris.
-   * TODO
-   *
-   * ! Move nav items to a file in the _lib folder.
-   */
-
-  const navItems: NavTabItem[] = [
-    { title: "Home", uri: "/" },
-    { title: "Bio", uri: "/bio/professional" },
-    { title: "Experience", uri: "/experience" },
-    { title: "Education", uri: "/education" },
-    { title: "Skills", uri: "/skills" },
-    { title: "Projects", uri: "/projects" }
-  ];
 
   return (
     <Tabs.RootProvider

@@ -16,7 +16,7 @@ export const buttonRecipe = defineRecipe({
         bg: "transparent",
         fontSize: "md",
         py: 2,
-        px: 4,
+        px: 6,
         boxShadow:
           "rgba(0, 134, 255, 0.2) 0px 0px 15px, rgba(0, 134, 255, 0.15) 0px 0px 3px 1px",
         border: "1px solid rgba(0, 134, 255, 0.4)"
