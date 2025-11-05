@@ -1,104 +1,89 @@
 "use client";
 
-import { JSX } from "react";
+import { Fragment, JSX, useState } from "react";
 import BackgroundImage from "@/components/ui/bgImage";
-import { Box, Heading, SimpleGrid, useTabs, VStack } from "@chakra-ui/react";
+import { Box, Heading, SimpleGrid, VStack } from "@chakra-ui/react";
 import icons, { IconTuple, tabs } from "./Icons";
-import { useSearchParams } from "next/navigation";
-import TabsNav, { TabsObj } from "@/components/ui/nav/Tabs";
+import { TabsObj } from "@/components/ui/nav/Tabs";
+import FilterMenu from "@/components/ui/nav/FilterMenu";
 
 const SkillsPage = (): JSX.Element => {
-  // Tabs store
-  const tabsState = useTabs({
-    defaultValue: "all"
-  });
-
-  // Query parameters. /uri?KEY=PARAM
-  const filterParams = useSearchParams();
-  const filter = filterParams.get("skill");
-  const tabFilters = tabs.map((element) => element[0]);
+  // Filter
+  const [filterState, setFilterState] = useState("All");
+  const filtersMenu = tabs.map((element) => element[0]);
   let filteredIcons = Object.values(icons).flat();
 
-  //  Tabs array
-  let tabsArr: TabsObj[] = [] as TabsObj[];
+  //  Filters array
+  let filtersArr: TabsObj[] = [] as TabsObj[];
 
   // Add "all" to the start of the array
-  if (tabsArr.length === 0) {
-    tabsArr.push({ title: "All", uri: "?skills=all" });
+  if (filtersArr.length === 0) {
+    filtersArr.push({ title: "All", uri: "?skills=all" });
   }
 
-  // Concat the rest of the items to the tabs array.
+  // Concat the rest of the items to the filters array.
   if (tabs.length >= 1) {
-    tabsArr = tabsArr.concat(
+    filtersArr = filtersArr.concat(
       tabs.map((tuple) => {
         return { uri: `?skill=${tuple[0]}`, title: tuple[1] };
       })
     );
   }
 
-  // Update tabs on render
-  if (filter === "all" || filter === null) {
-    tabsState.setValue("All");
-  }
-
-  // Verify the param is a valid key in the icons object.
-  if (filter !== null) {
-    if (tabFilters.includes(filter)) {
-      const tuple = tabs.find((tuple) => filter === tuple[0]);
+  // Verify the filter is a valid key in the icons object.
+  if (filterState !== null) {
+    if (filtersMenu.includes(filterState)) {
+      const tuple = tabs.find((tuple) => filterState === tuple[0]);
       if (tuple) {
+        // Add only those items to the array that will be displayed
         filteredIcons = icons[tuple[1]];
-        tabsState.setValue(tuple[1]);
       }
     }
   }
 
   return (
-    <VStack
-      minH="100vh"
-      h="100%"
-      py="5vh"
-      px={{ base: 6, lg: "5vw", "2xl": "10vw" }}
-      id="skills"
-      gap={10}
-    >
+    <Fragment>
       <BackgroundImage />
-      <Box bg="brand.content">
-        <TabsNav
-          tabs={tabsArr}
-          title="skills"
-          defaultValue="all"
-          currentValue={tabsState}
-        />
-      </Box>
-      <SimpleGrid
-        columns={{ base: 1, sm: 2, md: 4, lg: 5, xl: 6, "2xl": 8 }}
-        gap={{ base: 10, md: 8 }}
-        w="100%"
-      >
-        {filteredIcons.map((icon: IconTuple) => (
-          <VStack
-            key={icon[0].replaceAll(" ", "-")}
-            id={icon[0].replaceAll(" ", "-")}
-            bg="brand.content"
-            boxShadow="rgba(255, 255, 255, 0.2) 0px 0px 15px, rgba(255, 255, 255, 0.15) 0px 0px 3px 1px"
-            border="1px solid white"
-            justifyContent="center"
-            alignContent="center"
-            textAlign="center"
-            p={4}
-            rounded="full"
-            w="100%"
-          >
-            <Box fontSize="75px" color="blackAlpha.700">
-              {icon[1]}
-            </Box>
-            <Heading textAlign="center" as="h4" size="md">
-              {icon[0]}
-            </Heading>
-          </VStack>
-        ))}
-      </SimpleGrid>
-    </VStack>
+      <VStack minH="100vh" h="100%" w="100%" py="10vh" id="skills" gap={4}>
+        <Box w="80%" textAlign="left">
+          <FilterMenu
+            title="skill-filter-menu"
+            filters={filtersArr}
+            currentValue={filterState}
+            updateValue={setFilterState}
+          />
+        </Box>
+        <SimpleGrid
+          columns={{ base: 1, sm: 2, md: 4, lg: 5, xl: 6, "2xl": 8 }}
+          px={{ base: 6, lg: "5vw", "2xl": "10vw" }}
+          gap={{ base: 10, md: 8 }}
+          w="100%"
+        >
+          {filteredIcons.map((icon: IconTuple) => (
+            <VStack
+              key={icon[0].replaceAll(" ", "-")}
+              id={icon[0].replaceAll(" ", "-")}
+              bg="brand.content"
+              boxShadow="rgba(255, 255, 255, 0.2) 0px 0px 15px, rgba(255, 255, 255, 0.15) 0px 0px 3px 1px"
+              border="1px solid white"
+              justifyContent="center"
+              alignContent="center"
+              textAlign="center"
+              p={4}
+              rounded="full"
+              w="100%"
+            >
+              <Box fontSize="75px" color="blackAlpha.700">
+                {icon[1]}
+              </Box>
+              <Heading textAlign="center" as="h4" size="md">
+                {icon[0]}
+              </Heading>
+            </VStack>
+          ))}
+        </SimpleGrid>
+      </VStack>
+    </Fragment>
   );
 };
 

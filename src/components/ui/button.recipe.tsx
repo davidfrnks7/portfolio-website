@@ -21,6 +21,15 @@ export const buttonRecipe = defineRecipe({
           "rgba(0, 134, 255, 0.2) 0px 0px 15px, rgba(0, 134, 255, 0.15) 0px 0px 3px 1px",
         border: "1px solid rgba(0, 134, 255, 0.4)"
       },
+      filterButton: {
+        bg: "brand.content",
+        fontSize: "2xl",
+        py: 4,
+        px: 6,
+        boxShadow:
+          "rgba(0, 134, 255, 0.2) 0px 0px 15px, rgba(0, 134, 255, 0.15) 0px 0px 3px 1px",
+        border: "1px solid rgba(0, 134, 255, 0.4)"
+      },
       credits: {
         bg: "brand.main",
         fontSize: "lg",
