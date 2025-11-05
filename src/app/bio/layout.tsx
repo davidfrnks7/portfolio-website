@@ -1,12 +1,21 @@
 "use client";
 
-import { JSX } from "react";
+import { Fragment, JSX } from "react";
 import Image from "next/image";
-import { ScrollArea, useTabs, VStack, Text, Box, Flex } from "@chakra-ui/react";
+import {
+  ScrollArea,
+  useTabs,
+  VStack,
+  Text,
+  Box,
+  Flex,
+  For
+} from "@chakra-ui/react";
 import BackgroundImage from "@/components/ui/bgImage";
 import portrait from "../../../public/images/portrait.jpg";
 import { usePathname } from "next/navigation";
 import TabsNav, { TabsObj } from "@/components/ui/nav/Tabs";
+import bio from "./bio";
 
 const BioPageNav = (): JSX.Element => {
   // Used to set the default tab
@@ -30,88 +39,93 @@ const BioPageNav = (): JSX.Element => {
     { title: "Personal", uri: "/bio/personal" }
   ];
 
-  /**
-   * TODOS:
-   * ! Add bios to a file in _lib folder.
-   * * Import and use the bios file.
-   */
-
   return (
-    <Flex
-      id="bio"
-      h="100vh"
-      w="auto"
-      justifyContent="center"
-      alignContent="center"
-      alignItems="center"
-    >
+    <Fragment>
       <BackgroundImage />
       <Flex
-        h={{ base: "100%", lg: "auto" }}
+        id="bio"
+        h="100vh"
         w="auto"
-        p={{ base: "", lg: "2.5rem" }}
-        py={{ base: "2rem", lg: "" }}
-        mx={{ base: "", lg: "5vw" }}
-        rounded={{ base: "", lg: "4xl" }}
-        justifyContent={{ base: "center", lg: "flex-start" }}
+        justifyContent="center"
         alignContent="center"
         alignItems="center"
-        bg="brand.content"
-        gap={{ base: 0, lg: 6 }}
-        boxShadow={{
-          base: "",
-          lg: "rgba(255, 255, 255, 0.2) 0px 0px 15px, rgba(255, 255, 255, 0.15) 0px 0px 3px 1px"
-        }}
-        border={{ base: "", lg: "1px solid white" }}
-        direction={{ base: "column", lg: "row" }}
-        minH={{ base: "100vh", lg: "0" }}
       >
-        <Box
-          id="portrait"
-          h="auto"
-          w={{ base: "70%", sm: "40%", md: "35%", lg: "30%", xl: "25%" }}
-          m={6}
+        <Flex
+          h={{ base: "100%", lg: "auto" }}
+          w="auto"
+          py={{ base: "2.5rem", lg: "" }}
+          p={{ base: "", lg: "2.5rem" }}
+          mx={{ base: "", lg: "5vw" }}
+          rounded={{ base: "", lg: "4xl" }}
+          justifyContent={{ base: "center", lg: "flex-start" }}
+          alignContent="center"
+          alignItems="stretch"
+          bg="brand.content"
+          gap={{ base: 0, lg: 6 }}
+          boxShadow={{
+            base: "",
+            lg: "rgba(255, 255, 255, 0.2) 0px 0px 15px, rgba(255, 255, 255, 0.15) 0px 0px 3px 1px"
+          }}
+          border={{ base: "", lg: "1px solid white" }}
+          direction={{ base: "column", lg: "row" }}
         >
-          <Image
-            layout="intrinsic"
-            src={portrait}
-            alt='Picture of David "Leo" Franks'
-            placeholder="blur"
-          />
-        </Box>
-        <VStack
-          justifyContent="flex-start"
-          alignContent="flex-start"
-          alignItems="flex-start"
-          w={{ base: "80vw", sm: "90vw", lg: "80vw" }}
-        >
-          <TabsNav
-            tabs={bios}
-            defaultValue={pathString}
-            currentValue={tabs}
-            title="bio-tabs"
-          />
-          <ScrollArea.Root
-            id="bio-text"
-            colorPalette="blue"
-            variant="always"
-            minH={{ base: "35vh", md: "35vh", lg: "60vh" }}
-            w="100%"
-            bg="#09090bE6"
+          <Box
+            id="portrait"
+            w={{ base: "70%", sm: "40%", md: "30%", xl: "25%" }}
+            m={6}
           >
-            <ScrollArea.Viewport>
-              <ScrollArea.Content>
-                <Text>{`This will be the content from the ${tabs.value} bio`}</Text>
-              </ScrollArea.Content>
-            </ScrollArea.Viewport>
-            <ScrollArea.Scrollbar>
-              <ScrollArea.Thumb />
-            </ScrollArea.Scrollbar>
-            <ScrollArea.Corner />
-          </ScrollArea.Root>
-        </VStack>
+            <Image
+              layout="intrinsic"
+              src={portrait}
+              alt='Picture of David "Leo" Franks'
+              placeholder="blur"
+            />
+          </Box>
+          <VStack
+            justifyContent="flex-start"
+            alignContent="flex-start"
+            alignItems="flex-start"
+            w={{ base: "80vw", sm: "90vw", lg: "80vw" }}
+          >
+            <TabsNav
+              tabs={bios}
+              defaultValue={pathString}
+              currentValue={tabs}
+              title="bio-tabs"
+            />
+            <ScrollArea.Root
+              id="bio-text"
+              colorPalette="blue"
+              variant="always"
+              maxH={{ base: "40vh", sm: "45vh", md: "35vh", lg: "100%" }}
+              w="100%"
+            >
+              <ScrollArea.Viewport>
+                <ScrollArea.Content>
+                  <VStack gap={6}>
+                    {tabs.value !== null ? (
+                      <For each={bio[tabs.value.toLowerCase()]}>
+                        {(text) => {
+                          return (
+                            <Text w="100%" key={text.replaceAll(" ", "-")}>
+                              {text}
+                            </Text>
+                          );
+                        }}
+                      </For>
+                    ) : null}
+                  </VStack>
+                </ScrollArea.Content>
+              </ScrollArea.Viewport>
+              <ScrollArea.Scrollbar>
+                <ScrollArea.Thumb />
+              </ScrollArea.Scrollbar>
+              <ScrollArea.Corner />
+            </ScrollArea.Root>
+          </VStack>
+        </Flex>
       </Flex>
-    </Flex>
+    </Fragment>
   );
 };
 
