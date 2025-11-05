@@ -17,15 +17,15 @@ export default function RootLayout(props: {
       <link rel="icon" href="/images/favicon.svg" sizes="32x32 192x192" />
       <link rel="apple-touch-icon" href="/images/favicon.svg" />
       <meta property="og:type" content="Skills and Projects" />
-      <meta property="og:image" content="/images/davidFImage.jpg" />
+      <meta property="og:image" content="/images/portrait.jpg" />
       <meta property="og:image:type" content="image/jpeg" />
-      <meta property="og:image:alt" content="A face shot of David Franks." />
+      <meta property="og:image:alt" content="A face shot of Leo Franks." />
       <meta property="og:url" content="https://davidfrnks7.dev" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta property="type" content="Skills and Projects" />
-      <meta property="image" content="/images/davidFImage.jpg" />
+      <meta property="image" content="/images/portrait.jpg" />
       <meta property="image:type" content="image/jpeg" />
-      <meta property="image:alt" content="A face shot of David Franks." />
+      <meta property="image:alt" content="A face shot of Leo Franks." />
       <meta property="url" content="https://davidfrnks7.dev" />
       <meta httpEquiv="content-language" content="en_US" />
       <meta charSet="UTF-8" />
