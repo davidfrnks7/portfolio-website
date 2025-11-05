@@ -1,34 +1,38 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
-import jsxA11y from "eslint-plugin-jsx-a11y";
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 import reactPlugin from "eslint-plugin-react";
-import reactHooks from "eslint-plugin-react-hooks";
 import eslint from "@eslint/js";
 import tseslint from "typescript-eslint";
+import jsxA11y from "eslint-plugin-jsx-a11y";
+import reactHooks from "eslint-plugin-react-hooks";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname
-});
-
-const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+const eslintConfig = defineConfig([
+  ...nextVitals,
   eslintPluginPrettierRecommended,
   reactPlugin.configs.flat.recommended,
   reactPlugin.configs.flat["jsx-runtime"],
   eslint.configs.recommended,
+  tseslint.configs.recommended,
+  tseslint.configs.stylistic,
+  reactHooks.configs.flat.recommended,
+  // Override default ignores of eslint-config-next.
+  globalIgnores([
+    // Default ignores of eslint-config-next:
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+    "types/**"
+  ]),
   {
+    rules: {
+      "@typescript-eslint/no-empty-object-type": "off"
+    },
     plugins: {
-      jsxA11y: jsxA11y.configs.strict,
-      "react-hooks": reactHooks,
-      tseslint: tseslint.configs.recommended,
-      "tseslint-styles": tseslint.configs.stylistic
+      jsxA11y: jsxA11y.configs.strict
     }
   }
-];
+]);
 
 export default eslintConfig;

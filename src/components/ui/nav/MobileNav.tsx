@@ -6,12 +6,12 @@ import { useRouter } from "next/navigation";
 import { Dispatch, Fragment, JSX, SetStateAction, useState } from "react";
 import navItems from "./navItems";
 
-interface MobileNav {
+interface MobileNavProps {
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-const MobileNav = ({ isOpen, setIsOpen }: MobileNav): JSX.Element => {
+const MobileNav = ({ isOpen, setIsOpen }: MobileNavProps): JSX.Element => {
   // Handled Navigation for the tabs
   const router = useRouter();
 

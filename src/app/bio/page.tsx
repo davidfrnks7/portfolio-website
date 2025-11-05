@@ -1,7 +1,7 @@
 import { Fragment, JSX } from "react";
 
 const BioPage = (): JSX.Element => {
-  return <Fragment></Fragment>;
+  return <Fragment />;
 };
 
 export default BioPage;

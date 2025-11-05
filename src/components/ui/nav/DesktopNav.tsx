@@ -4,11 +4,11 @@ import { For, Tabs, useTabs } from "@chakra-ui/react";
 import { usePathname, useRouter } from "next/navigation";
 import { JSX, useEffect } from "react";
 import navItems from "./navItems";
-interface DesktopNav {
+interface DesktopNavProps {
   isHomePage: boolean;
 }
 
-const DesktopNav = ({ isHomePage }: DesktopNav): JSX.Element => {
+const DesktopNav = ({ isHomePage }: DesktopNavProps): JSX.Element => {
   // Handled Navigation for the tabs
   const router = useRouter();
 

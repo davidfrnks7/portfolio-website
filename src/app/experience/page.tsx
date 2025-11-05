@@ -1,4 +1,5 @@
 import { JSX } from "react";
+import { Metadata } from "next";
 import { Flex } from "@chakra-ui/react";
 import { Icon } from "@iconify/react";
 import BackgroundImage from "@/components/ui/bgImage";
@@ -6,9 +7,10 @@ import GenerateMetadata from "@/components/metadata/MetadataGen";
 import TimelineComponent from "@/components/ui/timeline/Timeline";
 import { workTimeline } from "@/data/timelines";
 
-// TODO Add description to metadata
-
-export const metadata = () => GenerateMetadata({ title: "Work Experience" });
+export const metadata: Metadata = GenerateMetadata({
+  title: "Work Experience",
+  description: "The list of jobs and clients I have worked for."
+});
 
 const ExperiencePage = (): JSX.Element => {
   return (
