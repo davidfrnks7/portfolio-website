@@ -8,6 +8,9 @@
 
 name: njsscan sarif
 
+permissions:
+  security-events: write
+
 on:
   push:
     branches: [main]
