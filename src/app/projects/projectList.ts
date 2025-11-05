@@ -15,6 +15,23 @@ export interface Project {
 
 const projects: Project[] = [
   {
+    name: "Portfolio Website",
+    date: "2021 -  current",
+    description:
+      "Modernized version of my portfolio site that I used to list my skills and demonstrate them for potential employers and clients to see.",
+    tech: [
+      "Next.js (React.js) in TypeScript",
+      "Chakra UI for styling",
+      "Utilized the Next.js app router to mage routable pages.",
+      "Utilized nested layouts to preserve states and prevent re-rendering when it's not necessary."
+    ],
+    deployed: "The app was deployed on Vercel and only has a frontend.",
+    links: {
+      github: "https://github.com/davidfrnks7/portfolio-website",
+      website: "https://davidfrnks7.dev"
+    }
+  },
+  {
     name: "Benefits Chat (Server)",
     date: "2024 -  current",
     description:
@@ -45,7 +62,7 @@ const projects: Project[] = [
     }
   },
   {
-    name: "Portfolio Website",
+    name: "Old Portfolio Website",
     date: "2021 -  current",
     description:
       "A website to list my skills and demonstrate them for potential employers and clients to see.",
@@ -53,15 +70,16 @@ const projects: Project[] = [
       "Next.js (React.js) in TypeScript",
       "Chakra UI for styling",
       "Formik for form validation",
-      "hCaptcha for bot defence and human validation/detection within the form",
+      "hCaptcha for bot defense and human validation/detection within the form",
+      "(deprecated):",
       "Nodemailer to send forms through email",
       "RESTful API to receive from data",
       "Axios to make requests to an API on form submit"
     ],
     deployed: "The app was deployed on Vercel and only has a frontend.",
     links: {
-      github: "https://github.com/davidfrnks7/portfolio-website",
-      website: "https://davidfrnks7.dev"
+      github: "https://github.com/davidfrnks7/old-portfolio-website",
+      website: "https://old.davidfrnks7.dev"
     }
   },
   {

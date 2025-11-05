@@ -59,7 +59,7 @@ const BioPageNav = (): JSX.Element => {
           rounded={{ base: "", lg: "4xl" }}
           justifyContent={{ base: "center", lg: "flex-start" }}
           alignContent="center"
-          alignItems="stretch"
+          alignItems={{ base: "center", lg: "stretch" }}
           bg="brand.content"
           gap={{ base: 0, lg: 6 }}
           boxShadow={{

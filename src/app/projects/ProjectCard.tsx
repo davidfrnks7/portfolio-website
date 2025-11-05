@@ -1,8 +1,8 @@
 import { Fragment, JSX } from "react";
 import {
+  Flex,
   For,
   Heading,
-  HStack,
   IconButton,
   Link,
   List,
@@ -34,12 +34,15 @@ const ProjectCard = ({ project }: ProjectCardProps): JSX.Element => {
         {name}
       </Heading>
       <Text>{description}</Text>
-      <ScrollArea.Root height="20vh" variant="always">
+      <ScrollArea.Root
+        height={{ base: "20vh", sm: "25vh", md: "30vh" }}
+        variant="always"
+      >
         <ScrollArea.Viewport>
           <ScrollArea.Content as={VStack} gap={4}>
             <Text>{`The app was build on ${tech[0]} and used:`}</Text>
-            <List.Root>
-              <For each={tech.splice(1)}>
+            <List.Root w="90%">
+              <For each={tech.slice(1)}>
                 {(text: string, index) => (
                   <List.Item key={`tech-item-${index}`}>{text}</List.Item>
                 )}
@@ -52,7 +55,7 @@ const ProjectCard = ({ project }: ProjectCardProps): JSX.Element => {
                     "My team expaned the app by adding the following featured and functionality:"
                   }
                 </Text>
-                <List.Root>
+                <List.Root w="90%">
                   <For each={expanded}>
                     {(text: string, index) => (
                       <List.Item key={`expanded-item-${index}`}>
@@ -66,7 +69,7 @@ const ProjectCard = ({ project }: ProjectCardProps): JSX.Element => {
             {role ? (
               <Fragment>
                 <Text>{"My role in this project was to:"}</Text>
-                <List.Root>
+                <List.Root w="90%">
                   <For each={role}>
                     {(text: string, index) => (
                       <List.Item key={`role-item-${index}`}>{text}</List.Item>
@@ -83,7 +86,7 @@ const ProjectCard = ({ project }: ProjectCardProps): JSX.Element => {
         <ScrollArea.Corner />
       </ScrollArea.Root>
       <Text>{deployed}</Text>
-      <HStack gap={4}>
+      <Flex direction={{ base: "column", sm: "row" }} gap={4}>
         <IconButton variant="project" py={2} px={4}>
           <Link
             href={links.github}
@@ -112,7 +115,7 @@ const ProjectCard = ({ project }: ProjectCardProps): JSX.Element => {
             </Link>
           </IconButton>
         ) : null}
-      </HStack>
+      </Flex>
     </VStack>
   );
 };
