@@ -1,9 +1,9 @@
 {
-  "name": "davids-portfolio-website",
-  "version": "4.0",
+  "name": "leos-portfolio-website",
+  "version": "1.0",
   "private": true,
   "author": {
-    "name": "David F",
+    "name": "Leo Franks",
     "email": "contact@davidfrnks7.dev"
   },
   "scripts": {
