@@ -9,7 +9,8 @@ import {
   Text,
   Box,
   Flex,
-  For
+  For,
+  Presence
 } from "@chakra-ui/react";
 import BackgroundImage from "@/components/ui/bgImage";
 import portrait from "../../../public/images/portrait.jpg";
@@ -42,89 +43,110 @@ const BioPageNav = (): JSX.Element => {
   return (
     <Fragment>
       <BackgroundImage />
-      <Flex
-        id="bio"
-        h="100vh"
-        w="auto"
-        justifyContent="center"
-        alignContent="center"
-        alignItems="center"
+      <Presence
+        present={true}
+        animationStyle={{
+          _open: "scale-fade-in",
+          _closed: "scale-fade-out"
+        }}
+        animationDuration="slowest"
       >
         <Flex
-          h={{ base: "100%", lg: "auto" }}
+          id="bio"
+          h="100vh"
           w="auto"
-          py={{ base: "2.5rem", lg: "" }}
-          p={{ base: "", lg: "2.5rem" }}
-          mx={{ base: "", lg: "5vw" }}
-          rounded={{ base: "", lg: "4xl" }}
-          justifyContent={{ base: "center", lg: "flex-start" }}
+          justifyContent="center"
           alignContent="center"
-          alignItems={{ base: "center", lg: "stretch" }}
-          bg="brand.content"
-          gap={{ base: 0, lg: 6 }}
-          boxShadow={{
-            base: "",
-            lg: "rgba(255, 255, 255, 0.2) 0px 0px 15px, rgba(255, 255, 255, 0.15) 0px 0px 3px 1px"
-          }}
-          border={{ base: "", lg: "1px solid white" }}
-          direction={{ base: "column", lg: "row" }}
+          alignItems="center"
         >
-          <Box
-            id="portrait"
-            w={{ base: "70%", sm: "40%", md: "30%", xl: "25%" }}
-            m={6}
+          <Flex
+            h={{ base: "100%", lg: "auto" }}
+            w="auto"
+            p={{ base: "", lg: "2.5rem" }}
+            mx={{ base: "", lg: "5vw" }}
+            rounded={{ base: "", lg: "4xl" }}
+            justifyContent={{ base: "center", lg: "flex-start" }}
+            alignContent="center"
+            alignItems={{ base: "center", lg: "stretch" }}
+            bg="brand.content"
+            gap={{ base: 0, lg: 6 }}
+            boxShadow={{
+              base: "",
+              lg: "rgba(255, 255, 255, 0.2) 0px 0px 15px, rgba(255, 255, 255, 0.15) 0px 0px 3px 1px"
+            }}
+            border={{ base: "", lg: "1px solid white" }}
+            direction={{ base: "column", lg: "row" }}
           >
-            <Image
-              layout="intrinsic"
-              src={portrait}
-              alt='Picture of David "Leo" Franks'
-              placeholder="blur"
-            />
-          </Box>
-          <VStack
-            justifyContent="flex-start"
-            alignContent="flex-start"
-            alignItems="flex-start"
-            w={{ base: "80vw", sm: "90vw", lg: "80vw" }}
-          >
-            <TabsNav
-              tabs={bios}
-              defaultValue={pathString}
-              currentValue={tabs}
-              title="bio-tabs"
-            />
-            <ScrollArea.Root
-              id="bio-text"
-              colorPalette="blue"
-              variant="always"
-              maxH={{ base: "40vh", sm: "45vh", md: "35vh", lg: "100%" }}
-              w="100%"
+            <Box
+              id="portrait"
+              w={{ base: "70%", sm: "40%", md: "30%", xl: "25%" }}
+              mx={6}
+              my="auto"
             >
-              <ScrollArea.Viewport>
-                <ScrollArea.Content>
-                  <VStack gap={6}>
+              <Image
+                layout="intrinsic"
+                src={portrait}
+                alt='Picture of David "Leo" Franks'
+                placeholder="blur"
+              />
+            </Box>
+            <VStack
+              justifyContent="flex-start"
+              alignContent="flex-start"
+              alignItems="flex-start"
+              w={{ base: "80vw", sm: "90vw", lg: "80vw" }}
+            >
+              <TabsNav
+                tabs={bios}
+                defaultValue={pathString}
+                currentValue={tabs}
+                title="bio-tabs"
+              />
+              <ScrollArea.Root
+                id="bio-text"
+                colorPalette="blue"
+                variant="always"
+                maxH={{ base: "40vh", sm: "45vh", md: "35vh", lg: "100%" }}
+                w="100%"
+              >
+                <ScrollArea.Viewport>
+                  <ScrollArea.Content>
                     {tabs.value !== null ? (
-                      <For each={bio[tabs.value.toLowerCase()]}>
-                        {(text) => {
-                          return (
-                            <Text w="100%" key={text.replaceAll(" ", "-")}>
-                              {text}
-                            </Text>
-                          );
+                      <Presence
+                        present={
+                          tabs.value.toLowerCase() ===
+                          pathname.split("/").pop()?.toLowerCase()
+                        }
+                        animationStyle={{
+                          _open: "scale-fade-in",
+                          _closed: "scale-fade-out"
                         }}
-                      </For>
+                        animationDuration="slowest"
+                      >
+                        <VStack gap={6}>
+                          <For each={bio[tabs.value.toLowerCase()]}>
+                            {(text) => {
+                              return (
+                                <Text w="100%" key={text.replaceAll(" ", "-")}>
+                                  {text}
+                                </Text>
+                              );
+                            }}
+                          </For>
+                        </VStack>
+                      </Presence>
                     ) : null}
-                  </VStack>
-                </ScrollArea.Content>
-              </ScrollArea.Viewport>
-              <ScrollArea.Scrollbar>
-                <ScrollArea.Thumb />
-              </ScrollArea.Scrollbar>
-              <ScrollArea.Corner />
-            </ScrollArea.Root>
-          </VStack>
+                  </ScrollArea.Content>
+                </ScrollArea.Viewport>
+                <ScrollArea.Scrollbar>
+                  <ScrollArea.Thumb />
+                </ScrollArea.Scrollbar>
+                <ScrollArea.Corner />
+              </ScrollArea.Root>
+            </VStack>
+          </Flex>
         </Flex>
-      </Flex>
+      </Presence>
     </Fragment>
   );
 };
