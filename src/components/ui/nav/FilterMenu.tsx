@@ -40,7 +40,7 @@ const FilterMenu = ({
       }
 
       if (tabFilters.includes(filter) === false && filter !== "all") {
-        updateValue("All");
+        updateValue("all");
         router.replace("?skill=all");
       }
     } else {
@@ -70,7 +70,7 @@ const FilterMenu = ({
                   _hover={{ bg: "brand.hover" }}
                   onClick={() => {
                     router.replace(uri);
-                    updateValue(uri);
+                    uri.split("=")[1].toLowerCase();
                   }}
                   key={title.replaceAll(" ", "-")}
                   value={uri.split("=")[1].toLowerCase()}
