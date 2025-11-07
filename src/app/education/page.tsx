@@ -21,7 +21,6 @@ const EducationPage = (): JSX.Element => {
         minH="100vh"
         h="100%"
         w="100vw"
-        mt={{ base: "5vh", md: "0" }}
         justifyContent="center"
         alignContent="center"
         alignItems="center"
