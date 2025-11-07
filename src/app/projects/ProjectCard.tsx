@@ -11,7 +11,6 @@ import {
   Presence,
   ScrollArea,
   Text,
-  useDisclosure,
   VStack
 } from "@chakra-ui/react";
 import { Icon } from "@iconify/react";
