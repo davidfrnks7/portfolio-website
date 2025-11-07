@@ -26,7 +26,7 @@ const MobileNav = ({ isOpen, setIsOpen }: MobileNavProps): JSX.Element => {
         onClick={() => setIsOpen(!isOpen)}
         asChild
       >
-        <Button variant="mobileNav">
+        <Button variant="mobileNav" my={1}>
           <Icon
             icon={
               isOpen

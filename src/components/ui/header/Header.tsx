@@ -16,10 +16,10 @@ const Header = ({ isHomePage }: HeaderProps): JSX.Element => {
       zIndex={1000000}
       h="auto"
       w="100%"
-      pos="fixed"
+      pos="sticky"
       top="0"
       px={4}
-      alignItems={"center"}
+      alignItems="center"
       justifyContent="space-between"
       boxShadow={
         isMenuButtonOpen
@@ -54,7 +54,7 @@ const Header = ({ isHomePage }: HeaderProps): JSX.Element => {
       <Heading w="100%" as="h1" size="xl">
         {"Leo Franks Portfolio Website"}
       </Heading>
-      <DesktopNav isHomePage />
+      <DesktopNav isHomePage={isHomePage} />
       <MobileNav isOpen={isMenuButtonOpen} setIsOpen={setIsMenuButtonOpen} />
     </HStack>
   );
