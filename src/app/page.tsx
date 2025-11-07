@@ -24,7 +24,7 @@ export default function Home(): JSX.Element {
         alignContent="center"
       >
         <Heading as="h1" size="3xl">
-          {'Hello, I am David "Leo" Franks'}
+          {"Hello, I am Leo Franks"}
         </Heading>
         <TypeWriter />
         <ContactButtons />
