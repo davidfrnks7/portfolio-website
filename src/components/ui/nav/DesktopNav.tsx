@@ -53,7 +53,13 @@ const DesktopNav = ({ isHomePage }: DesktopNavProps): JSX.Element => {
               onClick={() => {
                 router.replace(uri);
               }}
-              color={isHomePage ? "whiteAlpha.950" : ""}
+              color={
+                tabs.value === title
+                  ? isHomePage
+                    ? "whiteAlpha.950"
+                    : "brand.hover"
+                  : "whiteAlpha.950"
+              }
               fontSize="lg"
               fontWeight="semibold"
             >

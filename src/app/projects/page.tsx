@@ -20,7 +20,7 @@ const ProjectsPage = (): JSX.Element => {
       justifyContent="center"
       alignContent="center"
       alignItems="center"
-      marginY="7vh"
+      marginY="3vh"
     >
       <BackgroundImage />
       <SimpleGrid
