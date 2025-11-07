@@ -81,7 +81,7 @@ const SkillsPage = (): JSX.Element => {
                 _open: "scale-fade-in",
                 _closed: "scale-fade-out"
               }}
-              animationDuration="modest"
+              animationDuration="slowest"
               key={icon[0].replaceAll(" ", "-")}
               id={icon[0].replaceAll(" ", "-")}
             >
