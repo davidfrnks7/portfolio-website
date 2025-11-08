@@ -24,7 +24,7 @@ export default function Home(): JSX.Element {
         justifyContent="center"
         alignContent="center"
       >
-        <Heading as="h1" size="3xl">
+        <Heading as="h2" size="3xl">
           {"Hello, I am Leo Franks"}
         </Heading>
         <TypeWriter />

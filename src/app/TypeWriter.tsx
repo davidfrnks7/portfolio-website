@@ -35,7 +35,7 @@ const TypeWriter = (): JSX.Element => {
       h="auto"
       mt="1rem"
       mb="5vh"
-      as="h2"
+      as="h3"
       size="4xl"
       color="whiteAlpha.950"
       onClick={() => {

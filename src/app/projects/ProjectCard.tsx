@@ -39,7 +39,7 @@ const ProjectCard = ({ project }: ProjectCardProps): JSX.Element => {
         gap={6}
         p={6}
       >
-        <Heading as="h3" size="xl">
+        <Heading as="h2" size="3xl">
           {name}
         </Heading>
         <Text>{description}</Text>
