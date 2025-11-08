@@ -18,8 +18,8 @@ const ExperiencePage = (): JSX.Element => {
       <BackgroundImage />
       <Flex
         id="projects"
-        minH="100vh"
         h="100%"
+        minH="93vh"
         w="100vw"
         justifyContent="center"
         alignContent="center"

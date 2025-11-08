@@ -59,7 +59,7 @@ const SkillsPage = (): JSX.Element => {
   return (
     <Fragment>
       <BackgroundImage />
-      <VStack minH="100vh" h="100%" w="100%" py="2.5vh" id="skills" gap={4}>
+      <VStack h="100%" minH="93vh" w="100%" py="2.5vh" id="skills" gap={4}>
         <Box w="80%" textAlign="left">
           <FilterMenu
             title="skill-filter-menu"

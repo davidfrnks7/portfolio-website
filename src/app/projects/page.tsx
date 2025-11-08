@@ -15,8 +15,8 @@ const ProjectsPage = (): JSX.Element => {
   return (
     <Flex
       id="projects"
-      minH="100vh"
-      w="100vw"
+      h="100%"
+      minH="93vh"
       justifyContent="center"
       alignContent="center"
       alignItems="center"

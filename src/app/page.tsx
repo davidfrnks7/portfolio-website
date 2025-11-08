@@ -18,7 +18,8 @@ export default function Home(): JSX.Element {
       <VStack
         id="name"
         w="100%"
-        h="100vh"
+        h="100%"
+        minH="93vh"
         textAlign="center"
         justifyContent="center"
         alignContent="center"

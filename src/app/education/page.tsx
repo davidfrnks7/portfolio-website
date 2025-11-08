@@ -18,9 +18,8 @@ const EducationPage = (): JSX.Element => {
       <BackgroundImage />
       <Flex
         id="education"
-        minH="100vh"
         h="100%"
-        w="100vw"
+        minH="93vh"
         justifyContent="center"
         alignContent="center"
         alignItems="center"

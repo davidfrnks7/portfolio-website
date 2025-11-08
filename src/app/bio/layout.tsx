@@ -53,7 +53,8 @@ const BioPageNav = (): JSX.Element => {
       >
         <Flex
           id="bio"
-          h="100vh"
+          h="100%"
+          minH="93vh"
           w="auto"
           justifyContent="center"
           alignContent="center"
