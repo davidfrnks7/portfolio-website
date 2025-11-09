@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, JSX } from "react";
+import { JSX } from "react";
 import Image from "next/image";
 import {
   ScrollArea,
