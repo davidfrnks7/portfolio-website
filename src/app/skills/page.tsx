@@ -57,7 +57,10 @@ const SkillsPage = (): JSX.Element => {
         const tuple = tabs.find((tuple) => filterState === tuple[0]);
         if (tuple) {
           // Add only those items to the array that will be displayed
-          setFilterTitle(tuple[1]);
+          setFilterTitle("");
+          setTimeout(() => {
+            setFilterTitle(tuple[1]);
+          }, 100);
           return setFilteredIcons(
             filterIconsArr(Object.values(icons).flat(), icons[tuple[1]])
           );
@@ -85,21 +88,30 @@ const SkillsPage = (): JSX.Element => {
             currentValue={filterState}
             updateValue={setFilterState}
           />
-          {filterTitle !== "all" ? (
-            <Heading
-              as="h2"
-              fontSize="2xl"
-              w={{ base: "100%", sm: "auto" }}
-              textAlign="center"
-              bg="brand.content"
-              py={2}
-              px={4}
-              boxShadow="rgba(255, 255, 255, 0.2) 0px 0px 15px, rgba(255, 255, 255, 0.15) 0px 0px 3px 1px"
-              border="1px solid white"
-              rounded="3xl"
+          {filterTitle !== "all" && filterTitle.length > 0 ? (
+            <Presence
+              present={filterTitle.length > 1 ? true : false}
+              animationStyle={{
+                _open: "scale-fade-in",
+                _closed: "scale-fade-out"
+              }}
+              animationDuration="slowest"
             >
-              {filterTitle}
-            </Heading>
+              <Heading
+                as="h2"
+                fontSize="2xl"
+                w={{ base: "100%", sm: "auto" }}
+                textAlign="center"
+                bg="brand.content"
+                py={2}
+                px={4}
+                boxShadow="rgba(255, 255, 255, 0.2) 0px 0px 15px, rgba(255, 255, 255, 0.15) 0px 0px 3px 1px"
+                border="1px solid white"
+                rounded="3xl"
+              >
+                {filterTitle}
+              </Heading>
+            </Presence>
           ) : null}
           {filterTitle !== "all" ? (
             <Box display={{ base: "none", sm: "block" }} />
