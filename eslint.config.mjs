@@ -13,9 +13,9 @@ const eslintConfig = defineConfig([
   reactPlugin.configs.flat.recommended,
   reactPlugin.configs.flat["jsx-runtime"],
   eslint.configs.recommended,
-  tseslint.configs.recommended,
-  tseslint.configs.stylistic,
-  reactHooks.configs.flat.recommended,
+  // tseslint.configs.recommended,
+  // tseslint.configs.stylistic,
+  // reactHooks.configs.flat.recommended,
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:
@@ -30,7 +30,10 @@ const eslintConfig = defineConfig([
       "@typescript-eslint/no-empty-object-type": "off"
     },
     plugins: {
-      jsxA11y: jsxA11y.configs.strict
+      jsxA11y: jsxA11y.configs.strict,
+      reactHooks: reactHooks.configs.recommended,
+      tseslint: tseslint.configs.recommended,
+      tseslintStyle: tseslint.configs.stylisticTypeChecked
     }
   }
 ]);
